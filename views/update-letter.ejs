@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ویرایش مکتوب</title>
+		<link rel="stylesheet" href="/css/add-employee.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!-- Sidebar -->
+			<aside class="sidebar">
+				<div class="company-logo">
+					<h1>مدیریت ترانسپورت</h1>
+				</div>
+				<nav class="menu">
+					<ul>
+						<li><a href="/dashboard">دشبورد</a></li>
+						<li>
+							<a href="/employees">کارمندان</a>
+						</li>
+						<li><a href="/vehicles">وسایل نقلیه</a></li>
+						<li>
+							<a href="/letters" class="active">مکتوب ها / ویرایش مکتوب</a>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- Main Content -->
+			<main class="content">
+				<header>
+					<h2>ویرایش مکتوب</h2>
+					<div class="user-info">
+						<span>خوش آمدید: ادمین</span>
+					</div>
+				</header>
+
+				<!-- Add Vehicle Form -->
+				<form
+					class="vehicle-form"
+					action="/letters/update/<%= result.id %>"
+					method="post"
+					enctype="multipart/form-data">
+					<label for="export-number">نمبر صادره</label>
+					<input
+						type="text"
+						id="export-number"
+						name="export_number"
+						value="<%= result.export_number %>"
+						placeholder="نمبر مکتوب مربوطه را وارد کنید" />
+
+					<label for="export-date">تاریخ صادره</label>
+					<input
+						type="text"
+						id="export-date"
+						name="export_date"
+						value="<%= result.export_date %>"
+						placeholder="  تاریخ صدور را وارد کنید" />
+					<label for="subject">موضوع</label>
+					<input
+						type="text"
+						id="subject"
+						name="subject"
+						value="<%= result.subject %>"
+						placeholder=" موضوع مکتوب را وارد کنید" />
+					<label for="sender">مرسل</label>
+					<input
+						type="text"
+						id="sender"
+						name="sender"
+						value="<%= result.sender %>"
+						placeholder=" مرسل را وارد کنید" />
+					<label for="reciever">مرسل علیه</label>
+					<input
+						type="text"
+						id="reciever"
+						name="receiver"
+						value="<%= result.receiver %>"
+						placeholder=" مرسل الیه را وارد کنید" />
+					<label for="letter-kind">نوع مکتوب</label>
+					<input
+						type="text"
+						id="letter-kind"
+						name="letter_kind"
+						value="<%= result.letter_kind %>"
+						placeholder="نوعیت مکتوب را وارد کنید" />
+					<input
+						type="file"
+						name="file"
+						id="file"
+						value="<%= result.file_pdf %>" />
+
+					<button type="submit">ثبت تغیرات</button>
+				</form>
+			</main>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>وسایط نقلیه</title>
+	</head>
+	<body>
+		<!DOCTYPE html>
+		<html lang="fa" dir="rtl">
+			<!-- Set the language to Persian (Farsi) and text direction to RTL -->
+			<head>
+				<meta charset="UTF-8" />
+				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+				<title>لیست وسایط نقلیه</title>
+				<!-- Translated title -->
+				<link rel="stylesheet" href="/css/tables.css" />
+				<!-- Linking RTL CSS file -->
+			</head>
+			<body>
+				<div class="container">
+					<!-- Sidebar -->
+					<aside class="sidebar">
+						<div class="company-logo">
+							<h1>مدیریت ترانسپورت</h1>
+						</div>
+						<nav class="menu">
+							<ul>
+								<li><a href="/dashboard">دشبورد</a></li>
+								<li><a href="/employees">کارمندان</a></li>
+								<li><a href="/vehicles" class="active">وسایل نقلیه</a></li>
+								<li><a href="/letters">مکتوب ها</a></li>
+							</ul>
+						</nav>
+					</aside>
+
+					<main class="content">
+						<header>
+							<h2>وسایل نقلیه</h2>
+							<div class="user-info">
+								<span>خوش آمدید: ادمین</span>
+							</div>
+						</header>
+						<div class="employee-list-container">
+							<!-- Filter/Search Section -->
+							<div class="filteration">
+								<a href="/vehicles/add_vehicle" class="add-employee-btn"
+									>اضافه کردن وسیله نقلیه</a
+								>
+								<div class="filter">
+									<input type="search" placeholder="نام، نمبر پلیت..." />
+									<button class="search-btn">جستجو</button>
+								</div>
+							</div>
+							<!-- Employee Table -->
+							<table class="employee-table">
+								<thead>
+									<tr>
+										<th><input type="checkbox" /></th>
+										<th>شماره</th>
+										<th>راننده مربوطه</th>
+										<th>مادل وسیله</th>
+										<th>نمبر پلیت</th>
+										<th>رنگ</th>
+										<th>نمبر شاسی</th>
+										<th>حالت وسیله</th>
+										<th>نمبر انجن</th>
+										<th>ملاحظات</th>
+
+										<th style="width: 230px">اقدام</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% for (let i = 0; i < result.length; i++) { %>
+
+									<tr>
+										<td><input type="checkbox" /></td>
+										<td><%= i + 1 %></td>
+										<td><%= result[i].name %></td>
+										<td><%= result[i].vehicle_type %></td>
+										<td><%= result[i].palate_number%></td>
+										<td><%= result[i].color %></td>
+										<td><%= result[i].chasi_number %></td>
+										<td><%= result[i].car_condition %></td>
+										<td><%= result[i].engine_number %></td>
+										<td><%= result[i].notes %></td>
+										<td>
+											<a
+												href="/vehicles/update_vehicle/<%= result[i].id %>"
+												class="edit-btn"
+												>ویرایش</a
+											>
+											<form
+												action="/vehicles/<%= result[i].id %>/delete"
+												method="POST"
+												onsubmit="return confirm('آیا مطمئن هستید که می‌خواهید این وسیله را حذف کنید؟');"
+												style="display: inline">
+												<button type="submit" class="delete-btn">حذف</button>
+											</form>
+										</td>
+									</tr>
+
+									<% } %>
+									<!-- Add more rows as needed -->
+								</tbody>
+							</table>
+						</div>
+					</main>
+				</div>
+			</body>
+		</html>
+		<script src="script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>افزودن مکتوب جدید</title>
+		<link rel="stylesheet" href="/css/add-employee.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!-- Sidebar -->
+			<aside class="sidebar">
+				<div class="company-logo">
+					<h1>مدیریت ترانسپورت</h1>
+				</div>
+				<nav class="menu">
+					<ul>
+						<li><a href="/dashboard">دشبورد</a></li>
+						<li>
+							<a href="/employees">کارمندان</a>
+						</li>
+						<li><a href="/vehicles">وسایل نقلیه</a></li>
+						<li>
+							<a href="/letters" class="active">مکتوب ها / اضافه کردن مکتوب</a>
+						</li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- Main Content -->
+			<main class="content">
+				<header>
+					<h2>افزودن مکتوب جدید</h2>
+					<div class="user-info">
+						<span>خوش آمدید: ادمین</span>
+					</div>
+				</header>
+
+				<!-- Add Vehicle Form -->
+				<form
+					class="vehicle-form"
+					action="/letters/add_letter"
+					method="post"
+					enctype="multipart/form-data">
+					<label for="export-number">نمبر صادره</label>
+					<input
+						type="text"
+						id="export-number"
+						name="export_number"
+						placeholder="نمبر مکتوب مربوطه را وارد کنید" />
+
+					<label for="export-date">تاریخ صادره</label>
+					<input
+						type="text"
+						id="export-date"
+						name="export_date"
+						placeholder="  تاریخ صدور را وارد کنید" />
+					<label for="subject">موضوع</label>
+					<input
+						type="text"
+						id="subject"
+						name="subject"
+						placeholder=" موضوع مکتوب را وارد کنید" />
+					<label for="sender">مرسل</label>
+					<input
+						type="text"
+						id="sender"
+						name="sender"
+						placeholder=" مرسل را وارد کنید" />
+					<label for="reciever">مرسل علیه</label>
+					<input
+						type="text"
+						id="reciever"
+						name="receiver"
+						placeholder=" مرسل الیه را وارد کنید" />
+					<label for="letter-kind">نوع مکتوب</label>
+					<input
+						type="text"
+						id="letter-kind"
+						name="letter_kind"
+						placeholder="نوعیت مکتوب را وارد کنید" />
+					<input type="file" name="file" id="file" />
+
+					<button type="submit">ثبت</button>
+				</form>
+			</main>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,172 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+	font-family: "Bahij Nazanin", sans-serif;
+}
+body {
+	background-color: #f8f9fb;
+	direction: rtl; /* Set direction to RTL */
+	overflow: hidden;
+}
+a{
+	text-decoration: none;
+}
+.container {
+	display: flex;
+	width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+	width: 200px;
+	height: 100vh;
+	background-color: #2b3e50;
+	padding: 20px;
+	color: white;
+	position: fixed;
+}
+
+.sidebar h1 {
+	color: #fff;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.sidebar .menu ul {
+	list-style: none;
+	padding-right: 0;
+}
+
+.sidebar .menu ul li {
+	margin-bottom: 20px;
+}
+
+.sidebar .menu ul li a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	padding: 10px 15px;
+	border-radius: 5px;
+	text-align: right;
+}
+
+.sidebar .menu ul li a:hover,
+.sidebar .menu ul li a.active {
+	background-color: #4caf50;
+}
+.content {
+	flex-grow: 1;
+	margin-right: 15%;
+	padding: 30px;
+}
+
+.content header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.content header h2 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.content header .user-info {
+	font-size: 14px;
+	color: #555;
+}
+
+.employee-list-container {
+	width: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+	border-radius: 10px;
+	padding: 20px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	max-height: 80vh;
+	overflow-y: scroll;
+}
+
+.employee-table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: right; /* Align text to the right */
+}
+
+.employee-table thead {
+	background-color: #e6e9f2;
+}
+
+.employee-table th,
+.employee-table td {
+	padding: 15px;
+	border-bottom: 1px solid #ddd;
+	cursor: pointer;
+}
+.employee-table tr:hover {
+	background-color: #ddd;
+}
+
+.employee-table th {
+	font-weight: bold;
+}
+.filteration {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+.filteration input {
+	width: 100%;
+	border-radius: 5px;
+	padding: 5px;
+}
+.filter {
+	width: 30%;
+	display: flex;
+	gap: 10px;
+}
+.add-employee-btn {
+	background-color: #27ae60;
+	text-decoration: none;
+	padding: 5px 20px;
+	border-radius: 5px;
+	color: #fff;
+	border: none;
+	font-size: 16px;
+}
+.file-btn,
+.search-btn,
+.edit-btn,
+.delete-btn {
+	font-family: "Bahij Nazanin";
+	font-size: 16px;
+	padding: 5px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	color: #fff;
+	border: none;
+}
+
+.edit-btn {
+	background-color: #27ae60;
+	color: #fff;
+	border: none;
+}
+
+.delete-btn {
+	background-color: #eb5757;
+	margin-left: 5px;
+}
+.search-btn {
+	background-color: #4666f4;
+	margin-left: 5px;
+}
+.file-btn {
+	background-color: #4666f4;
+}
+.driver-btn{
+	background-color: #4666f4;
+}

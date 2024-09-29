@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<!-- Set the language to Persian (Farsi) and text direction to RTL -->
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>لیست مکتوب ها</title>
+		<!-- Translated title -->
+		<link rel="stylesheet" href="/css/tables.css" />
+		<!-- Linking RTL CSS file -->
+	</head>
+	<body>
+		<div class="container">
+			<!-- Sidebar -->
+			<aside class="sidebar">
+				<div class="company-logo">
+					<h1>مدیریت ترانسپورت</h1>
+				</div>
+				<nav class="menu">
+					<ul>
+						<li><a href="/dashboard">دشبورد</a></li>
+						<li><a href="/employees">کارمندان</a></li>
+						<li><a href="/vehicles">وسایل نقلیه</a></li>
+						<li><a href="/letters" class="active">مکتوب ها</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<main class="content">
+				<header>
+					<h2>مکتوب ها</h2>
+					<div class="user-info">
+						<span>خوش آمدید: ادمین</span>
+					</div>
+				</header>
+				<div class="employee-list-container">
+					<!-- Filter/Search Section -->
+					<div class="filteration">
+						<a href="/letters/add_letter" class="add-employee-btn"
+							>اضافه کردن مکتوب</a
+						>
+						<div class="filter">
+							<input type="search" placeholder="نام، نمبر تذکره..." />
+							<button class="search-btn">جستجو</button>
+						</div>
+					</div>
+					<!-- Employee Table -->
+					<table class="employee-table">
+						<thead>
+							<tr>
+								<th><input type="checkbox" /></th>
+								<th>شماره</th>
+								<th>نمبر صادره</th>
+								<th>تاریخ صادره</th>
+								<th>موضوع</th>
+								<th>مرسل</th>
+								<th>مرسل الیه</th>
+								<th>نوع مکتوب</th>
+								<th>اقدام</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for (let i = 0; i < result.length; i++) { %>
+
+							<tr>
+								<td><input type="checkbox" /></td>
+								<td><%= i + 1 %></td>
+								<td><%= result[i].export_number %></td>
+								<td><%= result[i].export_date %></td>
+								<td style="width: 230px"><%= result[i].subject %></td>
+								<td><%= result[i].sender %></td>
+								<td><%= result[i].receiver %></td>
+								<td><%= result[i].letter_kind %></td>
+								<td>
+									<a
+										href=" <%= result[i].file_pdf = result[i].file_pdf.replace('uploads', 'uploads/') %>"
+										class="file-btn"
+										>فایل</a
+									>
+									<a href="/letters/update/<%= result[i].id %>" class="edit-btn"
+										>ویرایش</a
+									>
+									<form
+										action="/letters/<%= result[i].id %>/delete"
+										method="POST"
+										onsubmit="return confirm('آیا مطمئن هستید که می‌خواهید این مکتوب را حذف کنید؟');"
+										style="display: inline">
+										<button type="submit" class="delete-btn">حذف</button>
+									</form>
+								</td>
+							</tr>
+							<% } %>
+
+							<!-- Add more rows as needed -->
+						</tbody>
+					</table>
+				</div>
+			</main>
+		</div>
+		<script src="script.js"></script>
+	</body>
+</html>

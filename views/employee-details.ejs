@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>پروفایل کارمند</title>
+		<link rel="stylesheet" href="/css/employee-details.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!-- Sidebar -->
+			<aside class="sidebar">
+				<div class="company-logo">
+					<h1>مدیریت ترانسپورت</h1>
+				</div>
+				<nav class="menu">
+					<ul>
+						<li><a href="/dashboard">دشبورد</a></li>
+						<li><a href="/employees" class="active">کارمندان</a></li>
+						<li><a href="/vehicles">وسایل نقلیه</a></li>
+						<li><a href="/letters">مکتوب ها</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- Main Content -->
+			<main>
+				<!-- Header -->
+				<header>
+					<h2>مشخصات کارمند</h2>
+					<div class="user-info">
+						<span>خوش آمدید: ادمین</span>
+					</div>
+				</header>
+
+				<!-- Profile Section -->
+				<section class="profile">
+					<div class="profile-header">
+						<h2><%= employee.name %> <%= employee.last_name %></h2>
+					</div>
+					<div class="profile-content">
+						<div class="profile-picture">
+							<img
+								src="<%= employee.photo || '' %>"
+								alt="<%= employee.name %>" />
+							<a href="#">تغییر تصویر پروفایل</a>
+						</div>
+						<div class="profile-details">
+							<h3>جزئیات شخصی</h3>
+							<!-- Profile Details in Table-like Structure -->
+							<table>
+								<tr>
+									<td><strong>نام:</strong></td>
+									<td><%= employee.name %></td>
+								</tr>
+								<tr>
+									<td><strong>نام پدر</strong></td>
+									<td><%= employee.father_name %></td>
+								</tr>
+								<tr>
+									<td><strong>تخلص</strong></td>
+									<td><%= employee.last_name %></td>
+								</tr>
+								<tr>
+									<td><strong>سکونت فعلی</strong></td>
+									<td><%= employee.current_location %></td>
+								</tr>
+								<tr>
+									<td><strong>سکونت اصلی:</strong></td>
+									<td><%= employee.birth_location %></td>
+								</tr>
+								<tr>
+									<td><strong>تاریخ تولد</strong></td>
+									<td><%= employee.birth_date %></td>
+								</tr>
+								<tr>
+									<td><strong>شماره تماس</strong></td>
+									<td><%= employee.phone_number %></td>
+								</tr>
+								<tr>
+									<td><strong>ایمیل</strong></td>
+									<td><%= employee.email %></td>
+								</tr>
+								<tr>
+									<td><strong>نوع کارمند</strong></td>
+									<td><%= employee.employee_type %></td>
+								</tr>
+								<tr>
+									<td><strong>نمبر تذکره</strong></td>
+									<td><%= employee. id_card_number %></td>
+								</tr>
+								<tr>
+									<td><strong>تاریخ استخدام</strong></td>
+									<td><%= employee.hire_date %></td>
+								</tr>
+								<tr>
+									<td><strong>دیپارتمنت</strong></td>
+									<td><%= employee.department_name %></td>
+								</tr>
+								<tr>
+									<td><strong>بست</strong></td>
+									<td><%= employee.bast %></td>
+								</tr>
+								<% if (employee.DriverID) {%>
+								<tr>
+									<td><strong>نمبر لیسنس</strong></td>
+									<td><%= employee.LicenseNumber %></td>
+								</tr>
+								<tr>
+									<td><strong>نوع لیسنس</strong></td>
+									<td><%= employee.LicenseType %></td>
+								</tr>
+								<tr>
+									<td><strong>تاریخ انقضا‌ء لیسنس</strong></td>
+									<td><%= employee.LicenseExpirationDate %></td>
+								</tr>
+								<tr>
+									<td><strong>سابقه رانندگی (به سال)</strong></td>
+									<td><%= employee.DrivingExperienceYears %></td>
+								</tr>
+								<tr>
+									<td><strong>سند طبی</strong></td>
+									<td><%= employee.MedicalCertificate %></td>
+								</tr>
+								<tr>
+									<td><strong>ساعات کاری</strong></td>
+									<td><%= employee.AvailabilitySchedule %></td>
+								</tr>
+								<% } %>
+							</table>
+							<div class="buttons">
+								<a
+									href="/employees/update_employee/<%= employee.id %>"
+									class="update-profile"
+									>به‌روزرسانی پروفایل</a
+								>
+								<form
+									action="/employees/<%= employee.id %>/delete"
+									method="POST"
+									onsubmit="return confirm('آیا می خواهید که معلومات کارمند ذیل را حذف کنید؟');">
+									<button type="submit" class="delete-profile">
+										حذف پروفایل
+									</button>
+								</form>
+								<button class="print-profile">
+									(PDF) فایل پروفایل<img
+										src="/imgs/pdf-picture.png"
+										alt="pdf-picture"
+										width="20px" />
+								</button>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+	</body>
+</html>

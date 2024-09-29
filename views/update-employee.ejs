@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ویرایش کارمند</title>
+		<link rel="stylesheet" href="/css/add-employee.css" />
+	</head>
+	<body style="overflow-y: scroll">
+		<div class="container">
+			<!-- Sidebar -->
+			<aside class="sidebar">
+				<div class="company-logo">
+					<h1>مدیریت ترانسپورت</h1>
+				</div>
+				<nav class="menu">
+					<ul>
+						<li><a href="/dashboard">دشبورد</a></li>
+						<li>
+							<a href="/employees" class="active">کارمندان / ویرایش کارمند</a>
+						</li>
+						<li><a href="/vehicles">وسایل نقلیه</a></li>
+						<li><a href="/letters">مکتوب ها</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- Main Content -->
+			<main class="content">
+				<header>
+					<h2>ویرایش کارمند</h2>
+					<div class="user-info">
+						<span>خوش آمدید: ادمین</span>
+					</div>
+				</header>
+
+				<!-- Update Employee Form -->
+				<form
+					style="height: 100vh"
+					class="vehicle-form"
+					method="POST"
+					action="/employees/update_employee/<%= employee.id %>">
+					<label for="name">نام</label>
+					<input
+						name="name"
+						type="text"
+						id="name"
+						value="<%= employee.name %>"
+						placeholder="نام کارمند را وارد کنید" />
+
+					<label for="fatherName">نام پدر</label>
+					<input
+						type="text"
+						name="fatherName"
+						id="fatherName"
+						value="<%= employee.father_name %>"
+						placeholder="نام پدر کارمند را وارد کنید" />
+
+					<label for="lastName">تخلص</label>
+					<input
+						type="text"
+						id="lastName"
+						name="lastName"
+						value="<%= employee.last_name %>"
+						placeholder="تخلص کارمند را وارد کنید" />
+
+					<label for="currentLocation">سکونت فعلی</label>
+					<input
+						type="text"
+						name="currentLocation"
+						id="currentLocation"
+						value="<%= employee.current_location %>"
+						placeholder="سکونت فعلی را وارد کنید" />
+
+					<label for="birthLocation">سکونت اصلی</label>
+					<input
+						type="text"
+						name="birthLocation"
+						id="birthLocation"
+						value="<%= employee.birth_location %>"
+						placeholder="سکونت اصلی را وارد کنید" />
+
+					<label for="birthDate">تاریخ تولد</label>
+					<input
+						type="text"
+						id="birthDate"
+						name="birthDate"
+						value="<%= employee.birth_date %>"
+						placeholder="تاریخ تولد را وارد کنید" />
+
+					<label for="phoneNumber">شماره تماس</label>
+					<input
+						type="number"
+						id="phoneNumber"
+						name="phoneNumber"
+						value="<%= employee.phone_number %>"
+						placeholder="شماره تماس کارمند را وارد کنید" />
+
+					<label for="email">ایمیل</label>
+					<input
+						type="email"
+						id="email"
+						name="email"
+						value="<%= employee.email %>"
+						placeholder="ایمیل کارمند را وارد کنید" />
+
+					<label for="empolyeeType">عنوان وظیفه</label>
+					<input
+						type="text"
+						id="employeeType"
+						name="employeeType"
+						value="<%= employee.employee_type %>" />
+
+					<label for="idCardNumber">نمبر تذکره</label>
+					<input
+						type="number"
+						name="idCardNumber"
+						id="idCardNumber"
+						value="<%= employee.id_card_number %>"
+						placeholder="نمبر تذکره را وارد کنید" />
+
+					<label for="hireDate">تاریخ استخدام</label>
+					<input
+						type="text"
+						name="hireDate"
+						id="hireDate"
+						value="<%= employee.hire_date %>"
+						placeholder="تاریخ استخدام را وارد کنید" />
+
+					<label for="department">آمریت مربوطات</label>
+					<input
+						type="number"
+						name="department"
+						id="department"
+						value="<%= employee.department_id %>"
+						placeholder="دیپارتمنت را وارد کنید" />
+
+					<label for="bast">رتبه</label>
+					<input
+						type="text"
+						name="bast"
+						id="bast"
+						value="<%= employee.bast %>"
+						placeholder="بست را وارد کنید" />
+
+					<!-- Driver-specific fields (displayed conditionally) -->
+					<% if (employee.DriverID) { %>
+					<label for="LicenseNumber">نمبر جواز</label>
+					<input
+						type="text"
+						id="LicenseNumber"
+						name="LicenseNumber"
+						value="<%= employee.LicenseNumber || '' %>"
+						placeholder="نمبر جواز را وارد کنید" />
+
+					<label for="LicenseType">نوعیت جواز</label>
+					<input
+						type="text"
+						id="LicenseType"
+						name="LicenseType"
+						value="<%= employee.LicenseType || '' %>"
+						placeholder="نوعیت جواز را وارد کنید" />
+
+					<label for="LicenseExpirationDate">تاریخ ختم جواز</label>
+					<input
+						type="text"
+						id="LicenseExpirationDate"
+						name="LicenseExpirationDate"
+						value="<%= employee.LicenseExpirationDate || '' %>"
+						placeholder="تاریخ ختم جواز را وارد کنید" />
+
+					<label for="DrivingExperienceYears">سال های تجربه رانندگی</label>
+					<input
+						type="number"
+						id="DrivingExperienceYears"
+						name="DrivingExperienceYears"
+						value="<%= employee.DrivingExperienceYears || '' %>"
+						placeholder="سال های تجربه رانندگی را وارد کنید" />
+
+					<label for="MedicalCertificate">سند صحی</label>
+					<input
+						type="text"
+						id="MedicalCertificate"
+						name="MedicalCertificate"
+						value="<%= employee.MedicalCertificate || '' %>"
+						placeholder="سند صحی را وارد کنید" />
+
+					<label for="AvailabilitySchedule">دسترسی زمانی</label>
+					<input
+						type="text"
+						id="AvailabilitySchedule"
+						name="AvailabilitySchedule"
+						value="<%= employee.AvailabilitySchedule || '' %>"
+						placeholder="دسترسی زمانی را وارد کنید" />
+					<% } %>
+					<button type="submit">ثبت تغییرات</button>
+				</form>
+			</main>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ویرایش وسیله نقلیه</title>
+		<link rel="stylesheet" href="/css/add-car.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!-- Sidebar -->
+			<aside class="sidebar">
+				<div class="company-logo">
+					<h1>مدیریت ترانسپورت</h1>
+				</div>
+				<nav class="menu">
+					<ul>
+						<li><a href="/dashboard">دشبورد</a></li>
+						<li><a href="/employees">کارمندان</a></li>
+						<li>
+							<a href="/vehicles" class="active">وسایل نقلیه / ویرایش </a>
+						</li>
+
+						<li><a href="/letters">مکتوب ها</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- Main Content -->
+			<main class="content">
+				<header>
+					<h2>ویرایش وسیله نقلیه</h2>
+					<div class="user-info">
+						<span>خوش آمدید: ادمین</span>
+					</div>
+				</header>
+
+				<!-- Add Vehicle Form -->
+				<form
+					class="vehicle-form"
+					action="/vehicles/update_vehicle/<%= result.id %>"
+					method="post">
+					<label for="driver-name">اسم راننده</label>
+					<select name="driver_id" id="driver-id">
+						<% for (let i = 0; i < names.length; i++) { %>
+						<option value="<%= names[i].EmployeeID %>">
+							<%= names[i].name %>
+						</option>
+						<% } %>
+					</select>
+					<label for="vehicle_type">نوع وسیله نقلیه</label>
+					<input
+						type="text"
+						value="<%= result.vehicle_type %>"
+						name="vehicle_type"
+						id="vehicle_type"
+						placeholder="نوع وسیله را وارد کنید" />
+
+					<label for="palate_number">نمبر پلیت</label>
+					<input
+						type="number"
+						value="<%= result.palate_number %>"
+						name="palate_number"
+						id="palate_number"
+						placeholder="نمبر پلیت را وارد کنید" />
+
+					<label for="color">رنگ</label>
+					<input
+						type="text"
+						value="<%= result.color %>"
+						name="color"
+						id="color"
+						placeholder="رنگ را وارد کنید" />
+
+					<label for="chasi_number">نمبر شاسی</label>
+					<input
+						type="text"
+						value="<%= result.chasi_number %>"
+						name="chasi_number"
+						id="chasi_number"
+						placeholder="نمبر شاسی را وارد کنید" />
+
+					<label for="car_condation">حالت وسیله</label>
+					<input
+						type="text"
+						value="<%= result.car_condition %>"
+						name="car_condition"
+						id="car_condition"
+						placeholder="حالت وسیله را وارد کنید" />
+
+					<label for="engine_number">نمبر انجن</label>
+					<input
+						type="text"
+						value="<%= result.engine_number %>"
+						name="engine_number"
+						id="engine_number"
+						placeholder="نمبر انجن را وارد کنید" />
+
+					<label for="notes">ملاحظات</label>
+					<input
+						type="text"
+						id="notes"
+						name="notes"
+						placeholder="ملاحظات"
+						value="<%= result.notes %>" />
+
+					<button type="submit">ثبت</button>
+				</form>
+			</main>
+		</div>
+	</body>
+</html>

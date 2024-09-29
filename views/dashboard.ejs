@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/css/dashboard.css" />
+		<title>دشبورد</title>
+	</head>
+	<body>
+		<div class="container">
+			<aside class="sidebar">
+				<div class="company-logo">
+					<h1>مدیریت ترانسپورت</h1>
+				</div>
+				<nav class="menu">
+					<ul>
+						<li><a href="dashboard" class="active">دشبورد</a></li>
+						<li><a href="/employees">کارمندان</a></li>
+						<li><a href="vehicles">وسایل نقلیه</a></li>
+						<li><a href="/letters">مکتوب ها</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<main class="content">
+				<div class="card-container">
+					<div class="card">
+						<div class="card-content">
+							<div class="icon">👥</div>
+							<h2>کارمندان ثبت شده:</h2>
+							<p><%= counts.employeeCount %></p>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-content">
+							<div class="icon">📊</div>
+							<h2>وسایل لیست شده:</h2>
+							<p><%= counts.vehicleCount %></p>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-content">
+							<div class="icon">🚗</div>
+							<h2>وسایل نقلیه لیست شده</h2>
+							<p><%= counts.vehicleCount %></p>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-content">
+							<div class="icon">🚗</div>
+							<h2>مکتوب های وارده:</h2>
+							<p>0</p>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-content">
+							<div class="icon">🚗</div>
+							<h2>مکتوب های صادره:</h2>
+							<p>0</p>
+						</div>
+					</div>
+				</div>
+			</main>
+		</div>
+	</body>
+</html>

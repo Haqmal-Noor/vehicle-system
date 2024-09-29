@@ -1,0 +1,126 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Bahij Nazanin", sans-serif;
+}
+
+body {
+	background-color: #f0f0f0;
+	display: flex;
+	height: 100vh;
+	overflow: hidden;
+}
+
+.container {
+	display: flex;
+	width: 100%;
+}
+
+/* Sidebar */
+.sidebar {
+	width: 250px;
+	background-color: #2b3e50;
+	padding: 20px;
+	color: white;
+}
+
+.sidebar h1 {
+	color: #fff;
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+.sidebar .menu ul {
+	list-style: none;
+	padding-right: 0;
+}
+
+.sidebar .menu ul li {
+	margin-bottom: 20px;
+}
+
+.sidebar .menu ul li a {
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	padding: 10px 15px;
+	border-radius: 5px;
+	text-align: right;
+}
+
+.sidebar .menu ul li a:hover,
+.sidebar .menu ul li a.active {
+	background-color: #4caf50;
+}
+
+/* Main Content */
+.content {
+	flex-grow: 1;
+	padding: 30px;
+}
+
+.content header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.content header h2 {
+	font-size: 24px;
+	font-weight: bold;
+}
+
+.content header .user-info {
+	font-size: 14px;
+	color: #555;
+}
+
+/* Vehicle Form */
+.vehicle-form {
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	height: 95%;
+}
+
+.vehicle-form label {
+	display: block;
+	margin-bottom: 10px;
+	font-weight: bold;
+	text-align: right;
+}
+
+.vehicle-form input,
+.vehicle-form select {
+	width: 45%;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	text-align: right;
+}
+
+.vehicle-form input::placeholder {
+	text-align: right;
+}
+
+.vehicle-form button {
+	width: 15%;
+	padding: 5px 10px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.vehicle-form button:hover {
+	background-color: #45a049;
+}

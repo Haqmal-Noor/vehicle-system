@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<!-- Set the language to Persian (Farsi) and text direction to RTL -->
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>لیست کارمندان</title>
+		<!-- Translated title -->
+		<link rel="stylesheet" href="/css/tables.css" />
+		<!-- Linking RTL CSS file -->
+	</head>
+	<body>
+		<div class="container">
+			<!-- Sidebar -->
+			<aside class="sidebar">
+				<div class="company-logo">
+					<h1>مدیریت ترانسپورت</h1>
+				</div>
+				<nav class="menu">
+					<ul>
+						<li><a href="/dashboard">دشبورد</a></li>
+						<li><a href="/employees" class="active">کارمندان</a></li>
+						<li><a href="/vehicles">وسایل نقلیه</a></li>
+						<li><a href="/letters">مکتوب ها</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<main class="content">
+				<header>
+					<h2>کارمندان</h2>
+					<div class="user-info">
+						<span>خوش آمدید: ادمین</span>
+					</div>
+				</header>
+				<div class="employee-list-container">
+					<!-- Filter/Search Section -->
+					<div class="filteration">
+						<div>
+							<button
+								class="add-employee-btn"
+								onclick="window.location.href = `/employees/add_employee`">
+								اضافه کردن کارمند
+							</button>
+							<button
+								class="add-employee-btn driver-btn"
+								onclick="window.location.href = `/employees/add_driver`">
+								اضافه کردن راننده
+							</button>
+						</div>
+
+						<div class="filter">
+							<input type="search" placeholder="نام، نمبر تذکره..." />
+							<button class="search-btn">جستجو</button>
+						</div>
+					</div>
+					<!-- Employee Table -->
+					<table class="employee-table">
+						<thead>
+							<tr>
+								<th><input type="checkbox" /></th>
+								<th>شماره</th>
+								<th>نام</th>
+								<th>نام پدر</th>
+								<th>عنوان وظیفه</th>
+								<th>تاریخ استخدام</th>
+								<th>نمبر تذکره</th>
+								<th>ایمیل</th>
+								<th>آمریت مربوطات</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% for (let i = 0; i < rows.length; i++) { %>
+							<tr class="employee-row" data-id="<%= rows[i].id %>">
+								<td><input type="checkbox" /></td>
+								<td><%= i + 1 %></td>
+								<td><%= rows[i].name %></td>
+								<td><%= rows[i].father_name %></td>
+								<td><%= rows[i].bast %></td>
+								<td><%= rows[i].hire_date %></td>
+								<td><%= rows[i].id_card_number %></td>
+								<td><%= rows[i].email %></td>
+								<td><%= rows[i].department_name %></td>
+							</tr>
+							<% } %>
+
+							<!-- Add more rows as needed -->
+						</tbody>
+					</table>
+				</div>
+			</main>
+		</div>
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const rows = document.querySelectorAll(".employee-row");
+
+				rows.forEach((row) => {
+					row.addEventListener("click", () => {
+						const employeeId = row.getAttribute("data-id");
+						window.location.href = `/employees/employee_details/${employeeId}`;
+					});
+				});
+			});
+		</script>
+	</body>
+</html>

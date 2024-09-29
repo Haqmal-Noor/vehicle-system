@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>افزودن راننده جدید</title>
+		<link rel="stylesheet" href="/css/add-employee.css" />
+	</head>
+	<body>
+		<div class="container">
+			<!-- Sidebar -->
+			<aside class="sidebar">
+				<div class="company-logo">
+					<h1>مدیریت ترانسپورت</h1>
+				</div>
+				<nav class="menu">
+					<ul>
+						<li><a href="/dashboard">دشبورد</a></li>
+						<li>
+							<a href="/employees" class="active"
+								>کارمندان / اضافه کردن کارمند
+							</a>
+						</li>
+						<li><a href="/vehicles">وسایل نقلیه</a></li>
+						<li><a href="/letters">مکتوب ها</a></li>
+					</ul>
+				</nav>
+			</aside>
+
+			<!-- Main Content -->
+			<main class="content">
+				<header>
+					<h2>افزودن راننده جدید</h2>
+					<div class="user-info">
+						<span>خوش آمدید: ادمین</span>
+					</div>
+				</header>
+
+				<!-- Add Vehicle Form -->
+				<form class="vehicle-form" method="POST" action="/employees/add_driver">
+					<label for="name">نام</label>
+					<select name="name" id="name">
+						<% for (let i = 0; i < result.length; i++) { %>
+						<option value="<%= result[i].id %>"><%= result[i].name %></option>
+						<% } %>
+					</select>
+
+					<label for="LicenseNumber">نمبر لیسنس</label>
+					<input
+						type="text"
+						name="LicenseNumber"
+						id="LicenseNumber"
+						placeholder="نمبر لیسنس را وارد کنید" />
+
+					<label for="LicenseType">نوع لیسنس</label>
+					<input
+						type="text"
+						id="LicenseType"
+						name="LicenseType"
+						placeholder="نوع لیسنس را وارد کنید" />
+
+					<label for="LicenseExpirationDate">تاریخ انقضاء لیسنس</label>
+					<input
+						type="text"
+						name="LicenseExpirationDate"
+						id="LicenseExpirationDate"
+						placeholder=" تاریخ انقضاء لیسنس را وارد کنید" />
+
+					<label for="DriverExperienceYears">تجربه رانندگی</label>
+					<input
+						type="text"
+						name="DriverExperienceYears"
+						id="DriverExperienceYears"
+						placeholder="سابقه کاری راننده را وارد کنید" />
+					<label for="MedicalCertificate">سند طبی</label>
+					<select name="MedicalCertificate" id="MedicalCertificate">
+						<option value="1">بلی</option>
+						<option value="0">نخیر</option>
+					</select>
+
+					<label for="AvailablitySchedule">اوقات کاری</label>
+					<input
+						type="text"
+						id="AvailablitySchedule"
+						name="AvailablitySchedule"
+						placeholder="  اوقات کاری را وارد کنید" />
+
+					<button type="submit">ثبت</button>
+				</form>
+			</main>
+		</div>
+	</body>
+</html>
